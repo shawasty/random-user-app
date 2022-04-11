@@ -1,16 +1,14 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const base_url ="https://api.randomuser.me/";
-
-export async function fetchUser(){
-    try{
-    const response = await axios.get(base_url);
-    const result = response.data.results
-    console.log ('res..', result)
-    return result;
-
-    }catch(error){
-        console.log(error)
-    }
+const fetchUser = async () => {
+ 
+     try {
+        let response = await axios('https://api.randomuser.me/');
+        //console.log(response.data.results)
+        return response.data.results
+     } catch (error) {
+         console.log(error)
+     }
 }
-fetchUser()
+
+export default fetchUser
